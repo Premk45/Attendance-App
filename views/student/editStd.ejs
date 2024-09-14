@@ -1,0 +1,112 @@
+<%- layout("./layouts/boilerplate.ejs") %>
+
+<body class="newStdBody">
+
+    <form class="form" action="/home/allStd/<%= student.id %>?_method=PUT" method="post">
+
+        <div class="head mt-3">
+            <h3>Edit Student Details</h3>
+        </div>
+
+        <div class="mb-3 mt-3 form-floating">
+            <input name="student[image]" 
+                type="text" 
+                class="in form-control" 
+                id="s_image" 
+                placeholder="Stdudent Image URL/Link"
+                value="<%= student.image %>"
+            >
+            <label for="s_image">Stdudent Image URL/Link</label>
+        </div>
+
+        <div class="mb-3 form-floating">
+            <input 
+                name="student[name]" 
+                type="text" 
+                class="in form-control" 
+                id="first_name" 
+                placeholder="First Name"
+                value="<%= student.name %>"
+            >
+            <label for="first_name">First Name</label>
+        </div>
+
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[last_name]" 
+                type="text" 
+                class="in form-control" 
+                id="last_name" 
+                placeholder="Last Name"
+                value="<%= student.last_name %>"
+            >
+            <label for="last_name">Last Name</label>
+        </div>
+
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[DOB]" 
+                type="text" 
+                class="in form-control" 
+                id="dob" 
+                placeholder="DOB"
+                value="<%= student.DOB %>"
+            >
+            <label for="dob">DOB</label>
+        </div>
+        
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[father_name]" 
+                type="text" 
+                class="in form-control" 
+                id="f_name" 
+                placeholder="Father Name"
+                value="<%= student.father_name %>"
+            >
+            <label for="f_name">Father Name</label>
+        </div>
+
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[mother_name]" 
+                type="text" 
+                class="in form-control" 
+                id="m_name" 
+                placeholder="Mother Name"
+                value="<%= student.mother_name %>"
+            >
+            <label for="m_name">Mother Name</label>
+        </div>
+
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[s_phone]" 
+                type="text" 
+                class="in form-control" 
+                id="s_phone" 
+                placeholder="Student Phone"
+                value="<%= student.s_phone %>"
+            >
+            <label for="s_phone">Student Phone</label>
+        </div>
+
+        <div class="mb-3 form-floating" >
+            <input 
+                name="student[p_phone]" 
+                type="text" 
+                class="in form-control" 
+                id="p_phone" 
+                placeholder="Parent Phone"
+                value="<%= student.p_phone %>"
+            >
+            <label for="p_phone">Parent Phone</label>
+        </div>
+
+        <div class="savebtn">
+            <button class="btn btn-success btnsave">Update</button>
+        </div>
+  
+    </form>
+
+</body>

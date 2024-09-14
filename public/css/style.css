@@ -1,0 +1,45 @@
+.nav{
+    background-color: #808080 !important;
+    
+}
+
+.a{
+    border-radius: 30% !important;
+    color: white !important; 
+    transition: 0.3s !important;
+    margin-left: 30px !important;
+    
+}
+
+.a:hover{
+    font-weight: 500;
+    box-shadow: 1px 1px  1px rgb(10, 255, 213);
+}
+
+.bimg{
+    border-radius: 30%;
+    box-shadow: 1px 2px  1px black;
+    transition: 0.5s;
+}
+
+.bimg:hover{
+    box-shadow: 3px 5px  5px black;
+}
+
+.cName{
+    color: rgb(202, 180, 228);
+    margin-left: 6rem;
+    align-self: center;
+}
+
+.login {
+    margin-left: auto !important;
+}
+
+.lg{
+    color: white;
+    text-decoration: none;
+}
+
+
+

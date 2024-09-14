@@ -1,0 +1,43 @@
+.footer{
+    background-color: #808080;
+    margin-top: 3rem;
+    border-top: 1px solid black;
+}
+
+.s_info{
+    margin-top: 1rem;
+}
+
+.i_social{
+    font-size: 30px;
+    color: whitesmoke;
+    margin-bottom: 15px;
+    opacity: 0.5;
+    transition: 0.5s;
+    margin-left: 20px;
+}
+
+.i_social:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.collegeCopy{
+    color: whitesmoke;
+    margin-bottom: 15px;
+}
+
+.f_info1{
+    padding-bottom: 20px;
+}
+
+.f_info{
+    text-decoration: none;
+    color: whitesmoke;
+    padding-left: 10px;
+
+}
+
+.f_info:hover{
+    text-decoration: underline;
+}

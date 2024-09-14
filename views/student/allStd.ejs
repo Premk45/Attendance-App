@@ -1,0 +1,30 @@
+<% layout('./layouts/boilerplate') -%>
+
+
+<body>
+    <h1 class="mt-3" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: whitesmoke;">
+        View Students Detail
+    </h1>
+
+    <div class="fullcards mt-3 mb-3 pt-3">
+
+        <% for(let student of all_std) { %>
+            <a class="aa" style="text-decoration: none;" href="/home/allStd/<%= student.id %>"> 
+                <div class="cardmy"> <!-- start card -->
+                    <img src="<%= student.image %>" class="stdimg" alt="...">
+                    <div class="title">
+                      <h5> <%= student.name +' '+ student.last_name %> </h5>
+                    </div>
+                    <div> <!-- start btn -->
+                        <i class="fa-solid fa-eye "></i>
+                    </div> <!-- end btn -->
+                </div> <!-- end card -->
+            </a>
+        <% } %>
+    </div> 
+</body>
+
+
+
+
+    

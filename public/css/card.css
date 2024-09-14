@@ -1,0 +1,53 @@
+
+.fullcards{
+    height: 600px;
+    overflow: auto;
+    border: 1px solid black;
+    /* opacity: 0.1; */
+}
+
+.cardmy{
+    background-color: #606060;
+    color: white;
+    width: 927px;
+    height: 60px;
+    border: 1px solid black;
+    margin-bottom: 0.5rem;
+    margin-left: 5rem;
+    padding-right: 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 2px 1px black;
+    transition: 0.3s ease-in;
+    opacity: 0.5;
+}
+
+.cardmy:hover{
+    box-shadow: 3px 5px 5px black;
+    opacity: 1;
+}
+
+.title{
+    margin-right: auto;
+}
+
+
+
+.stdimg{
+    margin-left: 0.5rem;
+    margin-right: 2rem;
+    border-radius: 50%;
+    width: 50px !important;
+    height: 50px !important;
+    opacity: 1 !important;
+}
+
+i{
+    size: 20px;
+}
+
+
+
+
+

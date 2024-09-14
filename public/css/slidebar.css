@@ -1,0 +1,159 @@
+
+.slidemain{
+    margin-left: 15rem;
+}
+
+.slidebar{
+    margin-top: 2rem;
+    width: 600px;
+    height: 350px;
+    border: 1px solid black;
+}
+
+.options{
+    margin-top: 2rem;
+    margin-left: 15rem;
+    margin-bottom: 4rem;
+    width: 600px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+
+}
+
+.addStudent{
+    /* background-color: darkgray; */
+    color: white;
+    margin-bottom: 3rem;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+.addStudenti{
+    background-color: gray;
+    color: whitesmoke;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 4px 4px black;
+    transition: 0.8s;
+    padding: 5px;
+}
+
+.addStudenti:hover{
+    box-shadow: 2px 8px 16px black;
+}
+
+.viewStudent{
+    /* background-color: blueviolet; */
+    color: white;
+    margin-bottom: 3rem;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid black; */
+    
+}
+
+.viewStudenti{
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 4px 4px black;
+    transition: 0.8s;
+    padding: 5px;
+}
+
+.viewStudenti:hover{
+    box-shadow: 2px 8px 16px black;
+}
+
+.takeAttendance{
+    /* background-color: blueviolet; */
+    color: white;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+.takeAttendancei{
+    margin-top: 2rem;
+    background-color: gray;
+    color: whitesmoke;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 4px 4px black;
+    transition: 0.8s;
+    padding: 5px;
+}
+
+.takeAttendancei:hover{
+    box-shadow: 2px 8px 16px black;
+}
+
+.viewAttendance{
+    /* background-color: blueviolet; */
+    color: white;
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+.viewAttendancei{
+    margin-top: 2rem;
+    background-color: gray;
+    color: whitesmoke;
+    width: 100px;
+    height: 100px;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 4px 4px black;
+    transition: 0.8s;
+    padding: 5px;
+}
+
+.viewAttendancei:hover{
+    box-shadow: 2px 8px 16px black;
+}
+
+.para{
+    /* color: darkblue; */
+    /* text-shadow: 0px 1px 1px white; */
+    font-size: 15px; 
+    /* font-weight: 500; */
+    color: #fff;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+@-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 1px #fff,
+        0 0 2px #fff, 
+        0 0 3px #e60073, 
+        0 0 4px #e60073, 
+        0 0 5px #e60073, 
+        0 0 6px #e60073, 
+        0 0 7px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 2px #fff, 
+      0 0 4px #ff4da6, 
+      0 0 6px #ff4da6, 
+      0 0 8px #ff4da6, 
+      0 0 10px #ff4da6, 
+      0 0 12px #ff4da6, 
+      0 0 14px #ff4da6;
+    }
+  }
+
+
+

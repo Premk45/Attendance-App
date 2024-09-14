@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Table</title>
+    <link rel="stylesheet" href="/css/take_attendance.css">
+    
+</head>
+<body>
+
+    <% layout("./layouts/boilerplate.ejs") %>
+    <h1>Attendance Sheet</h1>
+
+    <div class="container">
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th class="head">Name Of All Students</th>
+                    <th>Absent</th>
+                    <th>Present</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(student of all_std) { %>
+                    <tr class="std">
+                        <td class="name"><%= student.name + ' ' + student.last_name %></td>
+                        <td class="cheks"><input class="" type="checkbox" class="checkbox" name="Absent" id="<%= student.id %>"></td>
+                        <td class="cheks"><input type="checkbox" class="checkbox"  name="Present" id="<%= student.id %>"></td>
+                    </tr> 
+                <% } %>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <form action="/home/take_attendance/new" method="post">
+        <button class="btnSave">Save</button>
+    </form>
+    
+
+    <script>
+        let stdchecks = document.querySelectorAll(".cheks");
+        
+        for(std of stdchecks){
+            std.addEventListener('click', (event) => {
+            fetch('http://localhost:8000/home/take_attendance', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: event.target.id , checked : event.target.checked , name : event.target.name})
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    }
+    </script>
+</body>
+</html>
