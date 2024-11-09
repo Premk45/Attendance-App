@@ -102,35 +102,14 @@ app.get("/home/take_attendance" , async (req , res) => {
     res.render("./Attendance/take_attendance.ejs" , {all_std});
 });
 
-// app.put("/home/take_attendance" , (req , res) => {
-//     checkCheckBox();
-//     let {id} = req.params;
-//     console.dir(id);
-//     res.send("working");
-// })
-
-
-eventEmitter.on('checkboxState', async (isChecked , id , name) => {
-    const student = await students.findById(id);
-
-    // console.log(student);
-    if((isChecked && id && name == "Present") && (isChecked && id && name == "Absent")){
-        console.log("Not Possible!");
-    }
-    else if(isChecked && id && name == "Present"){
-     console.log(`${student.name} is Present`);
-    }else{
-     console.log(`${student.name} is Absent`);
-    }
- });
 
 app.post('/home/take_attendance', (req, res) => {
     const isChecked = req.body.checked;
     const id = req.body.id;
     const name = req.body.name;
-  
-    // Emit the event with checkbox state
-    eventEmitter.emit('checkboxState', isChecked , id , name);
+
+    console.log(req.body);
+
 });
 
 
