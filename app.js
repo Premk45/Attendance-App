@@ -8,6 +8,9 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const wrapAsync = require("../Utils/wrapAsync.js");
 const ExpressError = require("../Utils/ExpressError.js");
+const {studentSchema} = require("./Schema.js");
+
+
 
 
 //Connection To Database
@@ -56,13 +59,12 @@ app.get("/home/new_std" , wrapAsync( async (req , res) => {
 }));
 
 app.post("/home/new_std" , wrapAsync( async (req , res) => {
-        if(!req.body.student){
-            throw new ExpressError(400, "Send Valid Data To Store!");
-        }else{
-            let newStudent = new students(req.body.student);
-            await newStudent.save();
-            res.redirect("/home/allStd");
-        }
+        
+    let response = studentSchema.validate(req.body);
+    console.log(response);
+    let newStudent = new students(req.body.student);
+    await newStudent.save();
+    res.redirect("/home/allStd");
 }));
 
 
@@ -156,7 +158,7 @@ app.all("*" , (req , res , next) => {
 
 app.use((err , req , res , next) => {
     let{statusCode=500 , message="Something Went Wrong!"} = err;
-    res.status(statusCode).send(message);
+    res.status(statusCode).render("./student/error.ejs" , {message});
 });
 
 app.listen(8000 , () => {
