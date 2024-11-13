@@ -49,9 +49,7 @@
     </div>
 </form>
     
-
     <script>
-           
             function ClickA(){
                 let checkA = document.getElementsByName("Absent");
                 for(check of checkA){
@@ -90,25 +88,48 @@
                 }
             };
 
+
+        //Fetch API To Post Request    
         const form = document.querySelector('form');
 
         form.addEventListener("submit" , (e) => {
             e.preventDefault();
 
             document.querySelectorAll('[type="checkbox"]').forEach(item => {
-                const id = item.id;
+                const id = item.id.substr(0 , 24);
                 const absent = item.name=== "Absent";
                 const present = item.name=== "Present";
+                const checked = item.checked === true;
+
+                const data = {
+                        Id : id,
+                        Absent : absent,
+                        Present : present,
+                        Checked : checked,
+
+                };
 
 
-                if(item.checked === true && item.name === "Absent"){
-                    console.dir(item.id + item.name);
-                }else if(item.checked === true && item.name === "Present"){
-                    console.log(item.id + item.name);
-                }
-                else{
-                    console.log("False");
-                }  
+            if(checked){
+                fetch('http://localhost:8000/home/take_attendance' , {
+                    method : 'POST',
+                    headers : {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                }).then(response => {
+                    if(!response.ok){
+                        throw new Error("Network Response was not ok");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Success" , data);
+                })
+                .catch(error => {
+                    console.error("There Was An Error!" , error);
+                });
+            }
             });
         });
     </script>

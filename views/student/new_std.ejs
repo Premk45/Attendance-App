@@ -2,49 +2,96 @@
 
 <body class="newStdBody">
 
-    <form class="form" action="/home/new_std" method="POST">
+    <form class="form needs-validation" action="/home/new_std" method="POST" novalidate>
 
         <div class="head mt-3">
             <h3>Student Details</h3>
         </div>
 
         <div class="mb-3 mt-3 form-floating">
-            <input name="student[image]" type="text" class="in form-control" id="s_image" placeholder="Stdudent Image URL/Link">
+            <input name="student[image]" 
+                type="text" 
+                class="in form-control" 
+                id="s_image" 
+                placeholder="Stdudent Image URL/Link"
+                required
+            >
             <label for="s_image">Stdudent Image URL/Link</label>
         </div>
 
         <div class="mb-3 form-floating">
-            <input name="student[name]" type="text" class="in form-control" id="first_name" placeholder="First Name">
+            <input name="student[name]" 
+                type="text" 
+                class="in form-control" 
+                id="first_name" 
+                placeholder="First Name"
+                required
+            >
             <label for="first_name">First Name</label>
         </div>
 
         <div class="mb-3 form-floating" >
-            <input name="student[last_name]" type="text" class="in form-control" id="last_name" placeholder="Last Name">
+            <input name="student[last_name]" 
+                type="text" 
+                class="in form-control" 
+                id="last_name" 
+                placeholder="Last Name"
+                required
+            >
             <label for="last_name">Last Name</label>
         </div>
 
         <div class="mb-3 form-floating" >
-            <input name="student[DOB]" type="date" class="in form-control" id="dob" placeholder="DOB">
+            <input name="student[DOB]" 
+                type="date" 
+                class="in form-control" 
+                id="dob" 
+                placeholder="DOB"
+                required
+            >
             <label for="dob">DOB</label>
         </div>
         
         <div class="mb-3 form-floating" >
-            <input name="student[father_name]" type="text" class="in form-control" id="f_name" placeholder="Father Name">
+            <input name="student[father_name]" 
+                type="text" 
+                class="in form-control" 
+                id="f_name" 
+                placeholder="Father Name"
+                required
+            >
             <label for="f_name">Father Name</label>
         </div>
 
         <div class="mb-3 form-floating" >
-            <input name="student[mother_name]" type="text" class="in form-control" id="m_name" placeholder="Mother Name">
+            <input name="student[mother_name]" 
+                type="text" 
+                class="in form-control" 
+                id="m_name" 
+                placeholder="Mother Name"
+                required
+            >
             <label for="m_name">Mother Name</label>
         </div>
 
         <div class="mb-3 form-floating" >
-            <input name="student[s_phone]" type="text" class="in form-control" id="s_phone" placeholder="Student Phone">
+            <input name="student[s_phone]" 
+                type="text" 
+                class="in form-control" 
+                id="s_phone" 
+                placeholder="Student Phone"
+            required>
             <label for="s_phone">Student Phone</label>
         </div>
 
         <div class="mb-3 form-floating" >
-            <input name="student[p_phone]" type="text" class="in form-control" id="p_phone" placeholder="Parent Phone">
+            <input name="student[p_phone]" 
+                type="text" 
+                class="in form-control" 
+                id="p_phone" 
+                placeholder="Parent Phone"
+                required
+            >
             <label for="p_phone">Parent Phone</label>
         </div>
 
@@ -55,3 +102,5 @@
     </form>
 
 </body>
+
+<script src="/js/V_Script.js"></script>

@@ -9,15 +9,34 @@ const studentSchema = new Schema({
         v,
         required : true,
     },
-    name : String,
-    last_name : String,
+    name : {
+        type : String,
+        required : true,
+    },
+    last_name : {
+        type : String,
+        required : true,
+    },
     DOB : {
         type : Date,
+        required : true,
     },
-    father_name : String,
-    mother_name : String,
-    s_phone : Number,
-    p_phone : Number,
+    father_name : {
+        type : String,
+        required : true,
+    },
+    mother_name : {
+        type : String,
+        required : true,
+    },
+    s_phone : {
+        type : Number,
+        required : true,
+    },
+    p_phone : {
+        type : Number,
+        required : true,
+    },
 
 })
 

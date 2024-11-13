@@ -4,14 +4,10 @@ const mongoose = require("mongoose");
 const students = require("./models/students.js");
 const path = require("path");
 const ejs_mate = require("ejs-mate");
-const {EventEmitter} = require('events');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
-
-
-// Create an EventEmitter instance
-const eventEmitter = new EventEmitter();
-
+const wrapAsync = require("../Utils/wrapAsync.js");
+const ExpressError = require("../Utils/ExpressError.js");
 
 
 //Connection To Database
@@ -39,85 +35,91 @@ app.use(bodyParser.json());
 
 
 // All Students 
-app.get("/home/allStd" , async (req , res) => {
+app.get("/home/allStd" , wrapAsync( async (req , res) => {
     const all_std = await students.find({});
     res.render("./student/allStd.ejs" , {all_std});
-});
+}));
 
 
 
 //Viewing Single Student Details
-app.get("/home/allStd/:id" , async (req , res) => {
+app.get("/home/allStd/:id" , wrapAsync( async (req , res) => {
     const {id} = req.params; 
     const student = await students.findById(id);
     res.render("./student/viewStd.ejs" , {student});
-});
+}));
 
 
 //Adding New Student
-app.get("/home/new_std" , async (req , res) => {
+app.get("/home/new_std" , wrapAsync( async (req , res) => {
     res.render("./student/new_std.ejs");
-});
+}));
 
-app.post("/home/new_std" , async (req , res) => {
-    let newStudent = new students(req.body.student);
-    await newStudent.save();
-    res.redirect("/home/allStd");
-});
+app.post("/home/new_std" , wrapAsync( async (req , res) => {
+        if(!req.body.student){
+            throw new ExpressError(400, "Send Valid Data To Store!");
+        }else{
+            let newStudent = new students(req.body.student);
+            await newStudent.save();
+            res.redirect("/home/allStd");
+        }
+}));
 
 
 //Edit Route
-app.get("/home/allStd/:id/editStd" , async (req , res) => {
+app.get("/home/allStd/:id/editStd" , wrapAsync ( async (req , res) => {
     let {id} = req.params;
     let student = await students.findById(id);
     res.render("./student/editStd.ejs" , {student});
-})
+}));
 
 
-app.put("/home/allStd/:id" , async (req , res) => {
+app.put("/home/allStd/:id" , wrapAsync( async (req , res) => {
     let {id} = req.params;
     let newStudent = req.body.student;
+    if(!req.body.student){
+        throw new ExpressError(400 , "Send Valid Data To Store!");
+    }
     let student = await students.findByIdAndUpdate(id , {...newStudent});
     
     await student.save();
     res.redirect(`/home/allStd/${id}`);
-});
+}));
 
 
 //Delete Route
-app.delete("/home/allStd/:id/deleteStd" , async (req , res) => {
+app.delete("/home/allStd/:id/deleteStd" , wrapAsync( async (req , res) => {
     let {id} = req.params;
 
     let student = await students.findByIdAndDelete(id);
     res.redirect("/home/allStd");
-});
+}));
 
 
 
 //Attendance Routes
 
 //Creat Attendance
-app.get("/home/take_attendance" , async (req , res) => {
+app.get("/home/take_attendance" , wrapAsync( async (req , res) => {
     const all_std = await students.find({});
     res.render("./Attendance/take_attendance.ejs" , {all_std});
-});
+}));
 
 
 app.post('/home/take_attendance', (req, res) => {
-    const isChecked = req.body.checked;
-    const id = req.body.id;
-    const name = req.body.name;
 
-    console.log(req.body);
+    const Id = req.body.Id;
+    const Absent = req.body.Absent;
+    const Present = req.body.Present;
+    const Checked = req.body.Checked;
+
+    console.dir(Id);
+    console.dir(Absent);
+    console.dir(Present);
+    console.dir(Checked);
+
 
 });
-
-
-// app.post("/home/take_attendance/new" , (req , res) => {
-//     const result = req.body;
-//     console.log(result);
-// })
-
 
 
 //Home Route
@@ -128,7 +130,6 @@ app.get("/home" , (req , res) => {
 app.get("/" , (req , res) => {
     res.send("I Am The Root");
 })
-
 
 
 // app.get("/testing" , async (req , res) => {
@@ -149,6 +150,15 @@ app.get("/" , (req , res) => {
 //     res.send("Successful Testing");
 // })
 
+app.all("*" , (req , res , next) => {
+    next(new ExpressError(404 , "Page Not Found!"));
+});
+
+app.use((err , req , res , next) => {
+    let{statusCode=500 , message="Something Went Wrong!"} = err;
+    res.status(statusCode).send(message);
+});
+
 app.listen(8000 , () => {
-    console.log("Server is listening");
+    console.log("Server is listening to port 8000");
 })

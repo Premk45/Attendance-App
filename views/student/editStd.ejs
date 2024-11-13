@@ -2,7 +2,7 @@
 
 <body class="newStdBody">
 
-    <form class="form" action="/home/allStd/<%= student.id %>?_method=PUT" method="post">
+    <form class="form needs-validation" action="/home/allStd/<%= student.id %>?_method=PUT" method="post" novalidate>
 
         <div class="head mt-3">
             <h3>Edit Student Details</h3>
@@ -15,6 +15,7 @@
                 id="s_image" 
                 placeholder="Stdudent Image URL/Link"
                 value="<%= student.image %>"
+                required
             >
             <label for="s_image">Stdudent Image URL/Link</label>
         </div>
@@ -27,6 +28,7 @@
                 id="first_name" 
                 placeholder="First Name"
                 value="<%= student.name %>"
+                required
             >
             <label for="first_name">First Name</label>
         </div>
@@ -39,6 +41,7 @@
                 id="last_name" 
                 placeholder="Last Name"
                 value="<%= student.last_name %>"
+                required
             >
             <label for="last_name">Last Name</label>
         </div>
@@ -51,6 +54,7 @@
                 id="dob" 
                 placeholder="DOB"
                 value="<%= student.DOB %>"
+                required
             >
             <label for="dob">DOB</label>
         </div>
@@ -63,6 +67,7 @@
                 id="f_name" 
                 placeholder="Father Name"
                 value="<%= student.father_name %>"
+                required
             >
             <label for="f_name">Father Name</label>
         </div>
@@ -75,6 +80,7 @@
                 id="m_name" 
                 placeholder="Mother Name"
                 value="<%= student.mother_name %>"
+                required
             >
             <label for="m_name">Mother Name</label>
         </div>
@@ -87,6 +93,7 @@
                 id="s_phone" 
                 placeholder="Student Phone"
                 value="<%= student.s_phone %>"
+                required
             >
             <label for="s_phone">Student Phone</label>
         </div>
@@ -99,6 +106,7 @@
                 id="p_phone" 
                 placeholder="Parent Phone"
                 value="<%= student.p_phone %>"
+                required
             >
             <label for="p_phone">Parent Phone</label>
         </div>
@@ -110,3 +118,4 @@
     </form>
 
 </body>
+<!-- <script src="/js/V_Script.js"></script> -->
